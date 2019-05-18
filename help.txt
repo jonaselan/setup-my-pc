@@ -1,0 +1,19 @@
+Usage:
+	smpc [ACTION]
+	smpc [ACTION] [OPTION]
+
+Action:
+	help 		Show this help message
+	install 	Install the software related to the [OPTION] chosen
+
+Example:
+	smpc install vscode
+
+Available options:
+	dev: install all development tolls
+	personal: install all personal tools
+	docker 		Docker Community Edition (apps via containers)
+	docker-compose 	CLI for Docker
+	composer 	PHP package manager
+	vlc 		Media Player with some standards codecs
+	ohmyzsh		Zshell Framework

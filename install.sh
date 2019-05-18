@@ -24,7 +24,7 @@ echo "$_prefix Setting up the user profile configs (to be persistent between use
 for _profiles in ~/.*rc; do
 	echo -e "\n export SMPCPATH=$_pwd" >> $_profiles
 done
-export MEOUPATH=$_pwd
+export SMPCPATH=$_pwd
 
 # Another Try to export
 # echo -e "#!/bin/bash \n\n export SMPCPATH=$_pwd" >> ./export.sh
