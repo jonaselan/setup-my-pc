@@ -27,28 +27,24 @@ dev_packages=(
 )
 
 main() {
-  cd $SMPCPATH && git fetch -vp 2&> /dev/null
-	echo "Version: "
-	git tag -l --sort=v:refname | egrep v. | tail -1
-	echo
-	cd - 2&> /dev/null
-	echo
-  # if [[ $_action == "install" ]]; then
-  #   # which option must be runned
-  #   case $_option in
-  #     ohmyzsh)
-  #       install_option $_option
-  #       ;;
-  #     # default case
-  #     *)
-  #       echo 'Option not found'
-  #       ;;
-  #   esac
-  # elif [[ $_argc -eq 0 || $_action == "help" ]]; then
-  #   show_help
-  # else
-  #   echo 'Command not found'
-  # fi
+  if [[ $_action == "install" ]]; then
+    # which option must be runned
+    case $_option in
+      ohmyzsh)
+        install_option $_option
+        ;;
+      # default case
+      *)
+        echo 'Option not found'
+        ;;
+    esac
+  elif [[ $_action == 'version' ]]; then
+    show_version
+  elif [[ $_argc -eq 0 || $_action == "help" ]]; then
+    show_help
+  else
+    echo 'Command not found'
+  fi
 }
 
 #execute
