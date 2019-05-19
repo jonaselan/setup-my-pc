@@ -12,32 +12,13 @@ _tag=$3 # tag to modify some behavior of the execution
 . $SMPCPATH/bin/dev.sh
 . $SMPCPATH/bin/personal.sh
 
-function command_exists() {
-    type "$1" >/dev/null 2>&1
-}
-
-personal_packages=(
-
-)
-
-dev_packages=(
-    $(command_exists ipython || echo ipython)
-    $(command_exists composer || echo composer)
-    $(command_exists node || echo nodejs)
-)
-
 main() {
   if [[ $_action == "install" ]]; then
-    # which option must be runned
-    case $_option in
-      ohmyzsh)
-        install_option $_option
-        ;;
-      # default case
-      *)
-        echo 'Option not found'
-        ;;
-    esac
+    if [[ $_option == "ohmyzsh" || $_option == "personal" ]]; then
+      install_$_option
+    else
+      echo 'Option not found'
+    fi
   elif [[ $_action == 'version' ]]; then
     show_version
   elif [[ $_argc -eq 0 || $_action == "help" ]]; then
