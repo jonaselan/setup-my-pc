@@ -1,46 +1,34 @@
 #!/bin/bash
 
-common_packages=(
-  $(command_exists vim || echo vim)
-  $(command_exists wget || echo wget)
-  $(command_exists curl || echo curl)
-  $(command_exists java || echo java)
-  $(command_exists node || echo node)
-)
-
 personal_packages=(
-  'terminator'
-  'ripgrep'
-  'bat'
   'ohmyzsh'
+  'terminator'
+  'bat'
+  'ripgrep'
   'kolourpaint4'
   'spotify'
   'vlc'
 )
 
 install_personal(){
-  if [[ ${#common_packages[@]} != 0 ]]
-  then
-      sudo apt-get install ${common_packages[@]}
-  fi
-
   for package in "${personal_packages[@]}"
   do
       if ! hash $package 2>/dev/null; then
           install_$package
       else
-          echo 'installed'
+          echo "${$package} already installed"
       fi
   done
 }
 
 install_terminator(){
-  echo "Installing ripgrep"
-	echo "Based on: https://github.com/BurntSushi/ripgrep#installation"
+  echo "Installing terminator"
+	echo "Based on: https://gnometerminator.blogspot.com/p/introduction.html"
 	echo
 
+  sudo add-apt-repository ppa:gnome-terminator
   sudo apt-get update
-  sudo apt-get install ripgrep -y
+  sudo apt-get install terminator -y
 
   echo "Terminator installed!"
   echo
@@ -71,6 +59,49 @@ install_kolourpaint4(){
   echo
 }
 
+install_ripgrep(){
+  echo "Installing ripgrep"
+	echo "Based on: https://github.com/BurntSushi/ripgrep#installation"
+	echo
+
+  sudo apt-get update
+  sudo apt-get install ripgrep -y
+
+  echo "ripgrep installed!"
+  echo
+}
+
+install_spotify(){
+  echo "Installing Spotify..."
+	echo "Based on: https://www.spotify.com/br/download/linux/"
+	echo
+
+  # 1. Add the Spotify repository signing keys to be able to verify downloaded packages
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+  # 2. Add the Spotify repository
+  echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+  # 3. Update list of available packages
+  sudo apt-get update
+  # 4. Install Spotify
+  sudo apt-get install spotify-client -y
+
+  echo
+	echo "Spotify installed"
+}
+
+install_vlc(){
+  echo "Installing VLC..."
+	echo "Based on: http://www.edivaldobrito.com.br/como-instalar-a-ultima-versao-do-vlc/"
+	echo
+
+	sudo add-apt-repository ppa:nicola-onorata/desktop
+	sudo apt update
+	sudo apt install vlc
+
+	echo
+	echo "VLC installed"
+}
+
 install_ohmyzsh(){
 	if [[ -e /usr/bin/zsh && -e ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
 		echo "Oh-My-Zsh is already installed!"
@@ -82,9 +113,9 @@ install_ohmyzsh(){
 	echo
 
 	if [[ ! -e /usr/bin/zsh ]]; then
-		echo "Zsh is required. Do you want install it? (Y/n)"
+		echo "Zsh is required. Do you want install it? (y/n)"
 		read choice;
-		choice=$(first_letter_lower $choice)
+
 		if [[ $choice == "y" ]]; then
 			sudo apt update && sudo apt install zsh
 			chsh -s $(which zsh)
@@ -102,9 +133,9 @@ install_ohmyzsh(){
 			sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 			cd -
 		else
-			echo "curl or wget is required. Do you want install them? (Y/n)"
+			echo "curl or wget is required. Do you want install them? (y/n)"
 			read choice;
-			choice=$(first_letter_lower $choice)
+
 			if [[ $choice == "y" ]]; then
 				sudo apt update && sudo apt install wget curl
 				smpc $_action $_option
@@ -113,7 +144,7 @@ install_ohmyzsh(){
 	fi
 	echo "Oh-My-Zsh Installed"
 
-  confirm_install 'zshplugins'
+  # confirm_install 'zshplugins'
   # baixar .zshrc do meu github
 }
 
