@@ -9,6 +9,7 @@ _tag=$3 # tag to modify some behavior of the execution
 
 # importing functions
 . $SMPCPATH/bin/helpers.sh
+. $SMPCPATH/bin/basic.sh
 . $SMPCPATH/bin/dev.sh
 . $SMPCPATH/bin/personal.sh
 
