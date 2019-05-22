@@ -16,8 +16,15 @@ $ source install.sh
 
 ## Usage
 
+With a fresh pc, I recommend follow this steps:
+
 ```bash
-$ smpc
+# step 1
+$ smpc basic
+# step 2
+$ smpc personal
+# step 3
+$ smpc dev
 ```
 
 ## Available options
@@ -33,16 +40,6 @@ $ smpc
 - java
 - node
 
-### Dev
-
-- php
-- Docker
-- Docker-compose
-- composer
-- dbeaver
-- postman
-- htop
-
 ### Personal
 
 - ohmyzsh
@@ -53,5 +50,14 @@ $ smpc
 - spotify
 - vlc
 
+### Dev
+
+- php
+- Docker
+- Docker-compose
+- composer
+- dbeaver
+- postman
+- htop
 
 Project inspired on [MEOU](https://github.com/DavidCardoso/my-env-on-ubuntu)
