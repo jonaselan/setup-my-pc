@@ -18,16 +18,11 @@ show_version(){
 }
 
 confirm_install(){
-	echo "Do you want to install $1? (Y/n)"
+	echo "Do you want to install $1? (y/n)"
 	read choice
 	if [[ $choice == "Y" || $choice == "y" || $choice == "yes" ]];  then
 		install_$1
 	else
 		echo "...Not installed!"
 	fi
-}
-
-first_letter_lower(){
-	lower=$(echo $1 | tr '[:upper:]' '[:lower:]' | cut -b1)
-	echo $lower
 }

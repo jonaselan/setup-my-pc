@@ -1,6 +1,7 @@
 #!/bin/bash
 
 basic_packages=(
+  $(command_exists git || echo git)
   $(command_exists vim || echo vim)
   $(command_exists wget || echo wget)
   $(command_exists curl || echo curl)

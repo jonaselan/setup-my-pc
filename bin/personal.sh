@@ -5,6 +5,7 @@ personal_packages=(
   'terminator'
   'bat'
   'ripgrep'
+	'fzr'
   'kolourpaint4'
   'spotify'
   'vlc'
@@ -71,8 +72,20 @@ install_ripgrep(){
   echo
 }
 
+install_fzr(){
+	echo "Installing fzr"
+	echo "Based on: https://github.com/junegunn/fzf#using-git"
+	echo
+
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
+
+	echo "fzr installed"
+	echo
+}
+
 install_spotify(){
-  echo "Installing Spotify..."
+  echo "Installing Spotify"
 	echo "Based on: https://www.spotify.com/br/download/linux/"
 	echo
 
@@ -144,11 +157,24 @@ install_ohmyzsh(){
 	fi
 	echo "Oh-My-Zsh Installed"
 
-  # confirm_install 'zshplugins'
+  confirm_install 'zshplugins'
   # baixar .zshrc do meu github
 }
 
-# install_zshplugins(){
-  # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
-  # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh
-# }
+# I know the exist plugin managers, but this way I don't install extra things
+install_zshplugins(){
+	echo "Installing zsh-syntax-highlighting"
+	echo "https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh"
+	echo
+
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	echo "zsh-syntax-highlighting Installed"
+
+	echo "Installing zsh-autosuggestions"
+	echo "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
+	echo
+
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	echo "zsh-autosuggestions Installed"
+
+}
