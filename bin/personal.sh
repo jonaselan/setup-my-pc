@@ -19,80 +19,70 @@ install_personal(){
       if ! hash $package 2>/dev/null; then
           install_$package
       else
-          echo "${$package} already installed"
+          fail "${$package} is already installed!"
       fi
   done
 
 	# TODO: Pull this files automatically
-	echo "Grab dotfiles: https://github.com/jonaselan/dotfiles"
+	info "Grab dotfiles: https://github.com/jonaselan/dotfiles"
 }
 
 install_terminator(){
-  echo "Installing terminator"
-	echo "Based on: https://gnometerminator.blogspot.com/p/introduction.html"
-	echo
+  info "Installing terminator"
+	info "Based on: https://gnometerminator.blogspot.com/p/introduction.html"
 
   sudo add-apt-repository ppa:gnome-terminator
   sudo apt-get update
   sudo apt-get install terminator -y
 
-  echo "Terminator installed!"
-  echo
+	# TODO: download config after install
+  success "Terminator installed!"
 }
 
 install_bat(){
-  echo "Installing Bat"
-	echo "Based on: https://github.com/sharkdp/bat#installation"
-	echo
+  info "Installing Bat"
+	info "Based on: https://github.com/sharkdp/bat#installation"
 
   wget https://github.com/sharkdp/bat/releases/download/v0.11.0/bat-musl_0.11.0_amd64.deb
   sudo apt install ./bat-musl_0.11.0_amd64.deb -y
   rm bat-musl_0.11.0_amd64.deb
 
-  echo "Bat installed!"
-  echo
+  success "Bat installed!"
 }
 
 install_kolourpaint4(){
-  echo "Installing kolourpaint"
-	echo "Based on: https://www.vivaolinux.com.br/artigo/Kolourpaint-Um-editor-grafico-muito-util"
-	echo
+  info "Installing kolourpaint"
+	info "Based on: https://www.vivaolinux.com.br/artigo/Kolourpaint-Um-editor-grafico-muito-util"
 
   sudo apt-get update
   sudo apt-get install kolourpaint4 -y
 
-  echo "kolourpaint installed!"
-  echo
+  success "kolourpaint installed!"
 }
 
 install_ripgrep(){
-  echo "Installing ripgrep"
-	echo "Based on: https://github.com/BurntSushi/ripgrep#installation"
-	echo
+  info "Installing ripgrep"
+	info "Based on: https://github.com/BurntSushi/ripgrep#installation"
 
   sudo apt-get update
   sudo apt-get install ripgrep -y
 
-  echo "ripgrep installed!"
-  echo
+  success "ripgrep installed!"
 }
 
 install_fzr(){
-	echo "Installing fzr"
-	echo "Based on: https://github.com/junegunn/fzf#using-git"
-	echo
+	info "Installing fzr"
+	info "Based on: https://github.com/junegunn/fzf#using-git"
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
-	echo "fzr installed"
-	echo
+	success "fzr installed"
 }
 
 install_spotify(){
-  echo "Installing Spotify"
-	echo "Based on: https://www.spotify.com/br/download/linux/"
-	echo
+  user "Installing Spotify"
+	user "Based on: https://www.spotify.com/br/download/linux/"
 
   # 1. Add the Spotify repository signing keys to be able to verify downloaded packages
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
@@ -103,98 +93,90 @@ install_spotify(){
   # 4. Install Spotify
   sudo apt-get install spotify-client -y
 
-  echo
-	echo "Spotify installed"
+	success "Spotify installed"
 }
 
 install_vlc(){
-  echo "Installing VLC..."
-	echo "Based on: http://www.edivaldobrito.com.br/como-instalar-a-ultima-versao-do-vlc/"
-	echo
+  info "Installing VLC..."
+	info "Based on: http://www.edivaldobrito.com.br/como-instalar-a-ultima-versao-do-vlc/"
 
 	sudo add-apt-repository ppa:nicola-onorata/desktop
 	sudo apt update
 	sudo apt install vlc
 
-	echo
-	echo "VLC installed"
+	success "VLC installed"
 }
 
 install_ohmyzsh(){
 	if [[ -e /usr/bin/zsh && -e ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
-		echo "Oh-My-Zsh is already installed!"
-		exit 0
-	fi
-
-	echo "Installing Oh-My-Zsh"
-	echo "Based on: https://github.com/robbyrussell/oh-my-zsh/blob/master/README.md"
-	echo
-
-	if [[ ! -e /usr/bin/zsh ]]; then
-		echo "Zsh is required. Do you want install it? (y/n)"
-		read choice;
-
-		if [[ $choice == "y" ]]; then
-			sudo apt update && sudo apt install zsh
-			chsh -s $(which zsh)
-			zsh --version
-		fi
-	fi
-
-	if [[ -e /usr/bin/curl ]]; then
-		cd
-		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-		cd -
+		fail "Oh-My-Zsh is already installed!"
 	else
-		if [[ -e /usr/bin/wget ]]; then
-			cd
-			sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-			cd -
-		else
-			echo "curl or wget is required. Do you want install them? (y/n)"
+		info "Installing Oh-My-Zsh"
+		info "Based on: https://github.com/robbyrussell/oh-my-zsh/blob/master/README.md"
+
+		if [[ ! -e /usr/bin/zsh ]]; then
+			user "Zsh is required. Do you want install it? (y/n)"
 			read choice;
 
 			if [[ $choice == "y" ]]; then
-				sudo apt update && sudo apt install wget curl
-				smpc $_action $_option
+				sudo apt update && sudo apt install zsh
+				chsh -s $(which zsh)
+				zsh --version
 			fi
 		fi
-	fi
-	echo "Oh-My-Zsh Installed"
 
-  confirm_install 'zshplugins'
+		if [[ -e /usr/bin/curl ]]; then
+			cd
+			sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+			cd -
+		else
+			if [[ -e /usr/bin/wget ]]; then
+				cd
+				sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+				cd -
+			else
+				user "curl or wget is required. Do you want install them? (y/n)"
+				read choice;
+
+				if [[ $choice == "y" ]]; then
+					sudo apt update && sudo apt install wget curl
+					smpc $_action $_option
+				fi
+			fi
+		fi
+
+		success "Oh-My-Zsh Installed"
+
+		confirm_install 'zshplugins'
+	fi
 }
 
 # I know the exist plugin managers, but this way I don't install extra things
 install_zshplugins(){
-	echo "Installing zsh-syntax-highlighting"
-	echo "https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh"
-	echo
+	info "Installing zsh-syntax-highlighting"
+	info "https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh"
 
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	echo "zsh-syntax-highlighting Installed"
+	success "zsh-syntax-highlighting Installed"
 
-	echo "Installing zsh-autosuggestions"
-	echo "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
-	echo
+	info "Installing zsh-autosuggestions"
+	info "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
 
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-	echo "zsh-autosuggestions Installed"
+	success "zsh-autosuggestions Installed"
 
-	echo "Installing Spaceship theme"
-	echo "https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh"
-	echo
+	info "Installing Spaceship theme"
+	info "https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh"
 
 	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-	echo
+	success "spaceship-theme Installed"
 
-	echo "Configure your .zshrc manually"
+	warning "Configure your .zshrc manually"
 }
 
 install_fira_code(){
-	echo "Downloading and Installing Fira Code font"
-	echo "https://github.com/tonsky/FiraCode/wiki/Linux-instructions#manual-installation"
-	echo
+	user "Downloading and Installing Fira Code font"
+	user "https://github.com/tonsky/FiraCode/wiki/Linux-instructions#manual-installation"
 
 	fonts_dir="${HOME}/.local/share/fonts"
 	if [ ! -d "${fonts_dir}" ]; then
@@ -218,6 +200,5 @@ install_fira_code(){
 	echo "fc-cache -f"
 	fc-cache -f
 
-	echo "Fira code installed"
-	echo
+	success "Fira code installed"
 }

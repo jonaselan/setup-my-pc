@@ -8,6 +8,7 @@ basic_packages=(
   $(command_exists java || echo default-jdk) # https://thishosting.rocks/install-java-ubuntu/
   $(command_exists node || echo nodejs)
   $(command_exists node || echo npm)
+  # google-chrome
 )
 
 install_basic(){
@@ -17,4 +18,6 @@ install_basic(){
   then
       sudo apt-get install ${common_packages[@]} -y
   fi
+
+  success "Basic tolls installed"
 }
