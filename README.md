@@ -28,11 +28,12 @@ $ smpc dev
 ```
 
 ## Available options
-	basic: install all basic tools
-	personal: install all personal tools
-	dev: install all development tools
 
-## Basic
+- basic: install all basic tools
+- personal: install all personal tools
+- dev: install all development tools
+
+### Basic
 
 - vim
 - wget

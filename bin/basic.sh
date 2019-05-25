@@ -6,8 +6,9 @@ basic_packages=(
   $(command_exists wget || echo wget)
   $(command_exists curl || echo curl)
   $(command_exists java || echo default-jdk) # https://thishosting.rocks/install-java-ubuntu/
-  $(command_exists node || echo nodejs)
-  $(command_exists node || echo npm)
+  $(command_exists nodejs || echo nodejs)
+  $(command_exists npm || echo npm)
+  $(command_exists htop || echo htop)
   # google-chrome
 )
 
