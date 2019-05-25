@@ -181,7 +181,14 @@ install_zshplugins(){
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	echo "zsh-autosuggestions Installed"
 
+	echo "Installing Spaceship theme"
+	echo "https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh"
 	echo
+
+	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+	echo
+
+	echo "Configure your .zshrc manually"
 }
 
 install_fira_code(){
