@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TODO:
 personal_packages=(
   'ohmyzsh'
   'terminator'
@@ -9,6 +10,7 @@ personal_packages=(
   'kolourpaint4'
   'spotify'
   'vlc'
+	'fira_code'
 )
 
 install_personal(){
@@ -20,6 +22,9 @@ install_personal(){
           echo "${$package} already installed"
       fi
   done
+
+	# TODO: Pull this files automatically
+	echo "Grab dotfiles: https://github.com/jonaselan/dotfiles"
 }
 
 install_terminator(){
@@ -158,7 +163,6 @@ install_ohmyzsh(){
 	echo "Oh-My-Zsh Installed"
 
   confirm_install 'zshplugins'
-  # baixar .zshrc do meu github
 }
 
 # I know the exist plugin managers, but this way I don't install extra things
@@ -177,4 +181,36 @@ install_zshplugins(){
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	echo "zsh-autosuggestions Installed"
 
+	echo
+}
+
+install_fira_code(){
+	echo "Downloading and Installing Fira Code font"
+	echo "https://github.com/tonsky/FiraCode/wiki/Linux-instructions#manual-installation"
+	echo
+
+	fonts_dir="${HOME}/.local/share/fonts"
+	if [ ! -d "${fonts_dir}" ]; then
+			echo "mkdir -p $fonts_dir"
+			mkdir -p "${fonts_dir}"
+	else
+			echo "Found fonts dir $fonts_dir"
+	fi
+
+	for type in Bold Light Medium Regular Retina; do
+			file_path="${HOME}/.local/share/fonts/FiraCode-${type}.ttf"
+			file_url="https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true"
+			if [ ! -e "${file_path}" ]; then
+					echo "wget -O $file_path $file_url"
+					wget -O "${file_path}" "${file_url}"
+			else
+		echo "Found existing file $file_path"
+			fi;
+	done
+
+	echo "fc-cache -f"
+	fc-cache -f
+
+	echo "Fira code installed"
+	echo
 }
