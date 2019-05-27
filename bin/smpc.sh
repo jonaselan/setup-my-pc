@@ -15,7 +15,8 @@ _tag=$3 # tag to modify some behavior of the execution
 
 main() {
   if [[ $_action == "install" ]]; then
-    if [[ $_option == "ohmyzsh" || $_option == "personal" ]]; then
+    # TODO: usar flag para instalar ferramentas individualmente
+    if [[ $_option == "personal" ]]; then
       install_$_option
     else
       echo 'Option not found'

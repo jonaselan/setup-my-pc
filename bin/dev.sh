@@ -6,11 +6,11 @@ dev_packages=(
     'docker'
     'docker-compose'
     'dbeaver'
-    'postman'
-    'apache'
+    'apache2'
     'nginx'
     'postgres'
     'mysq'
+    'postman'
 )
 # 'vscode'
 
@@ -102,4 +102,46 @@ install_dbeaver(){
 	rm dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
 
 	success "DBeaver installed"
+}
+
+install_apache2(){
+	info "Installing Apache2"
+	info "Based on: https://tutorials.ubuntu.com/tutorial/install-and-configure-apache#1"
+
+	update_packages
+	sudo apt-get install apache2
+
+	sucess "Apache2 Installed"
+}
+
+install_nginx() {
+	info "Installing Nginx"
+	info "Based on: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04-quickstart"
+
+	update_packages
+	sudo apt-get install nginx
+
+	sucess "Nginx Installed"
+}
+
+
+install_postman(){
+	info "Installing Postman"
+	info "Based on: https://www.bluematador.com/blog/postman-how-to-install-on-ubuntu-1604"
+
+	wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+	sudo tar -xzf postman.tar.gz -C /opt
+	rm postman.tar.gz
+	sudo ln -s /opt/Postman/Postman /usr/bin/postman
+	sudo cat > /usr/share/applications/postman.desktop <<EOL
+	[Desktop Entry]
+	Encoding=UTF-8
+	Name=Postman
+	Exec=postman
+	Icon=/opt/Postman/app/resources/app/assets/icon.png
+	Terminal=false
+	Type=Application
+	Categories=Development;
+
+	sucess "Postman installed"
 }
