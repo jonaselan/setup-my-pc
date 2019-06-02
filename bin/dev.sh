@@ -22,7 +22,7 @@ install_dev(){
         if ! hash $package 2>/dev/null; then
             install_$package
         else
-            echo "${$package} already installed"
+            fail "${$package} already installed"
         fi
     done
 }
