@@ -154,7 +154,7 @@ install_ohmyzsh(){
 # I know the exist plugin managers, but this way I don't install extra things
 install_zshplugins(){
 	info "Installing zsh-syntax-highlighting"
-	info "https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh"
+	info "Based on: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh"
 
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 	success "zsh-syntax-highlighting Installed"
@@ -175,8 +175,8 @@ install_zshplugins(){
 }
 
 install_fira_code(){
-	user "Downloading and Installing Fira Code font"
-	user "https://github.com/tonsky/FiraCode/wiki/Linux-instructions#manual-installation"
+	info "Downloading and Installing Fira Code font"
+	info "Based on: https://github.com/tonsky/FiraCode/wiki/Linux-instructions#manual-installation"
 
 	fonts_dir="${HOME}/.local/share/fonts"
 	if [ ! -d "${fonts_dir}" ]; then
@@ -201,4 +201,16 @@ install_fira_code(){
 	fc-cache -f
 
 	success "Fira code installed"
+}
+
+install_exa(){
+	info "Installing exa"
+	info "Based on: https://www.tricksofthetrades.net/2018/08/30/exa-getting-started/"
+
+	wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip -P ~/
+	unzip ~/exa-linux-x86_64-0.8.0.zip -d ~/
+	sudo mv ~/exa-linux-x86_64 /usr/local/bin/exa
+	rm ~/exa-linux-x86_64-0.8.0.zip
+
+	success "Exa installed"
 }

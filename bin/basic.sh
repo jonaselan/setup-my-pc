@@ -9,6 +9,7 @@ basic_packages=(
   $(command_exists nodejs || echo nodejs)
   $(command_exists npm || echo npm)
   $(command_exists htop || echo htop)
+  $(command_exists unzip || echo unzip)
   # google-chrome
 )
 

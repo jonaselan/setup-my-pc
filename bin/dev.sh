@@ -142,6 +142,7 @@ install_postman(){
 	Terminal=false
 	Type=Application
 	Categories=Development;
+	EOL
 
 	sucess "Postman installed"
 }

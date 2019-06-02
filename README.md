@@ -11,7 +11,7 @@ Easy installation of things on the fresh pc (or not)
 ```bash
 $ git clone https://github.com/jonaselan/setup-my-pc.git
 $ cd setup-my-pc
-$ source install.sh
+$ ./install.sh
 ```
 
 ## Usage
@@ -50,15 +50,21 @@ $ smpc dev
 - kolourpaint4
 - spotify
 - vlc
+- fira_code
+- exa
 
 ### Dev
 
 - php
-- Docker
-- Docker-compose
+- docker
+- docker-compose
 - composer
 - dbeaver
 - postman
 - htop
+- apache2
+- nginx
+- postgres
+- mysq
 
 Project inspired on [MEOU](https://github.com/DavidCardoso/my-env-on-ubuntu)
