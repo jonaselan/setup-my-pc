@@ -8,7 +8,7 @@ dev_packages=(
     'dbeaver'
     'apache2'
     'nginx'
-    'postgres'
+    'postgresql'
     'mysq'
     'postman'
 )
@@ -122,6 +122,27 @@ install_nginx() {
 	sudo apt-get install nginx
 
 	sucess "Nginx Installed"
+}
+
+install_postgresql() {
+	info "Installing Posgresql"
+	info "Based on: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04"
+
+    update_packages
+	sudo apt install postgresql postgresql-contrib
+
+	success "Postgresql installed!"
+}
+
+install_mysql() {
+	info "Based on: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04"
+	info "Installing Mysql"
+
+    update_packages
+	sudo apt-get install mysql-server
+	mysql_secure_installation
+
+	success "Mysql installed!"
 }
 
 

@@ -64,7 +64,7 @@ $ smpc dev
 - htop
 - apache2
 - nginx
-- postgres
+- postgresql
 - mysq
 
 Project inspired on [MEOU](https://github.com/DavidCardoso/my-env-on-ubuntu)
