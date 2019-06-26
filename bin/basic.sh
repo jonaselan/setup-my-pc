@@ -10,6 +10,7 @@ basic_packages=(
   $(command_exists npm || echo npm)
   $(command_exists htop || echo htop)
   $(command_exists unzip || echo unzip)
+  $(command_exists clipit || echo clipit)
   # google-chrome
 )
 
@@ -21,5 +22,5 @@ install_basic(){
       sudo apt-get install ${common_packages[@]} -y
   fi
 
-  success "Basic tolls installed"
+  success "Basic tools installed"
 }
