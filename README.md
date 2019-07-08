@@ -20,11 +20,11 @@ With a fresh pc, I recommend follow this steps:
 
 ```bash
 # step 1
-$ smpc basic
+$ smpc install basic
 # step 2
-$ smpc personal
+$ smpc install personal
 # step 3
-$ smpc dev
+$ smpc install dev
 ```
 
 ## Available options
