@@ -17,9 +17,9 @@ basic_packages=(
 install_basic(){
   update_packages
 
-  if [[ ${#common_packages[@]} != 0 ]]
+  if [[ ${#basic_packages[@]} != 0 ]]
   then
-      sudo apt-get install ${common_packages[@]} -y
+      sudo apt-get install ${basic_packages[@]} -y
   fi
 
   success "Basic tools installed"

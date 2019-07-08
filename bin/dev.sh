@@ -72,8 +72,6 @@ install_docker(){
 	curl -sSL https://get.docker.com/ | sh
    	warning "Adding '$(whoami)' user to the docker group..."
    	sudo usermod -aG docker $(whoami)
-   	warning "Testing if Docker CE was installed correctly..."
-   	docker run hello-world
 
 	success "Docker CE installed"
 }
@@ -154,16 +152,15 @@ install_postman(){
 	sudo tar -xzf postman.tar.gz -C /opt
 	rm postman.tar.gz
 	sudo ln -s /opt/Postman/Postman /usr/bin/postman
-	sudo cat > /usr/share/applications/postman.desktop <<EOL
-	[Desktop Entry]
-	Encoding=UTF-8
-	Name=Postman
-	Exec=postman
-	Icon=/opt/Postman/app/resources/app/assets/icon.png
-	Terminal=false
-	Type=Application
-	Categories=Development;
-	EOL
-
+	cat > ~/.local/share/applications/postman.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=postman
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+EOL
 	sucess "Postman installed"
 }

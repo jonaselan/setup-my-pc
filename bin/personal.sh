@@ -6,11 +6,11 @@ personal_packages=(
   'terminator'
   'bat'
   'ripgrep'
-	'fzr'
+  'fzr'
   'kolourpaint4'
   'spotify'
   'vlc'
-	'fira_code'
+  'fira_code'
 )
 
 install_personal(){

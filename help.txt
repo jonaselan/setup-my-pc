@@ -3,8 +3,9 @@ Usage:
 	smpc [ACTION] [OPTION]
 
 Action:
-	help 		  Show this help message
 	install 	Install the software related to the [OPTION] chosen
+	version 	Show last version of smpc
+	help 		Show this help message
 
 Example:
 	smpc install vscode

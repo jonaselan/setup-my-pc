@@ -16,7 +16,7 @@ _tag=$3 # tag to modify some behavior of the execution
 main() {
   if [[ $_action == "install" ]]; then
     # TODO: usar flag para instalar ferramentas individualmente
-    if [[ $_option == "personal" ]]; then
+    if [[ $_option == "personal" || $_option == "dev" || $_option == "basic" ]]; then
       install_$_option
     else
       echo 'Option not found'
