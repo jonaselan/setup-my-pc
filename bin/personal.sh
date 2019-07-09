@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# TODO:
 personal_packages=(
   'ohmyzsh'
+  'zshplugins'
   'terminator'
   'bat'
   'ripgrep'
@@ -11,6 +11,9 @@ personal_packages=(
   'spotify'
   'vlc'
   'fira_code'
+  'exa'
+  # 'tweak'
+  # 'statusubuntu'
 )
 
 install_personal(){
@@ -23,8 +26,19 @@ install_personal(){
       fi
   done
 
-	# TODO: Pull this files automatically
-	info "Grab dotfiles: https://github.com/jonaselan/dotfiles"
+	user "Download jonaselan's dotfiles? (y/n)"
+	read choice;
+
+	if [[ $choice == "y" ]]; then
+		git clone https://github.com/jonaselan/dotfiles.git ~/smpc
+		mv ~/smpc/.gitconfig ~/ # git
+		mv ~/smpc/.zshrc ~/ # zsh
+		mv ~/smpc/.vimrc ~/ # vim
+		# terminator
+		mv ~/smpc/terminator ~/smpc/config
+		mkdir ~/.config/terminator/
+		mv ~/smpc/config ~/.config/terminator/
+	fi
 }
 
 install_terminator(){
@@ -35,7 +49,6 @@ install_terminator(){
   sudo apt-get update
   sudo apt-get install terminator -y
 
-	# TODO: download config after install
   success "Terminator installed!"
 }
 
@@ -146,8 +159,6 @@ install_ohmyzsh(){
 		fi
 
 		success "Oh-My-Zsh Installed"
-
-		confirm_install 'zshplugins'
 	fi
 }
 
@@ -169,9 +180,8 @@ install_zshplugins(){
 	info "https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh"
 
 	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 	success "spaceship-theme Installed"
-
-	warning "Configure your .zshrc manually"
 }
 
 install_fira_code(){
