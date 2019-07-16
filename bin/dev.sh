@@ -11,8 +11,11 @@ dev_packages=(
     'postgresql'
     'mysq'
     'postman'
+		'asdf'
 )
 # 'vscode'
+# 'build-essencial'
+# 'libssl-dev'
 
 install_dev(){
     update_packages
@@ -163,4 +166,19 @@ Type=Application
 Categories=Development;
 EOL
 	sucess "Postman installed"
+}
+
+install_asdf(){
+	info "Installing ASDF"
+	info "Based on: https://asdf-vm.com/#/core-manage-asdf-vm"
+
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.3
+	# bash
+	echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+	echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+	# zsh
+	echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.zshrc
+	echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
+
+	success "ASDF installed"
 }
