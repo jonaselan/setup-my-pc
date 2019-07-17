@@ -11,7 +11,7 @@ dev_packages=(
     'postgresql'
     'mysq'
     'postman'
-		'asdf'
+	'asdf'
 )
 # 'vscode'
 # 'build-essencial'
@@ -38,7 +38,7 @@ install_php(){
     sudo add-apt-repository ppa:ondrej/php
     sudo apt-get update
     sudo apt-get install php7.3 -y
-    sudo apt-get install php-pear php7.3-curl php7.3-dev php7.3-gd php7.3-mbstring php7.3-zip php7.3-mysql php7.3-xml
+    sudo apt-get install php-pear php7.3-curl php7.3-dev php7.3-gd php7.3-mbstring php7.3-zip php7.3-mysql php7.3-xml -y
 
 	success "Php installed"
 }

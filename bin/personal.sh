@@ -6,7 +6,7 @@ personal_packages=(
   'terminator'
   'bat'
   'ripgrep'
-  'fzr'
+  'fzf'
   'kolourpaint4'
   'spotify'
   'vlc'
@@ -17,14 +17,14 @@ personal_packages=(
 )
 
 install_personal(){
-  for package in "${personal_packages[@]}"
-  do
-      if ! hash $package 2>/dev/null; then
-          install_$package
-      else
-          fail "${$package} is already installed!"
-      fi
-  done
+	for package in "${personal_packages[@]}"
+	do
+		if ! hash $package 2>/dev/null; then
+			install_$package
+		else
+			fail "${$package} is already installed!"
+		fi
+	done
 
 	user "Download jonaselan's dotfiles? (y/n)"
 	read choice;
@@ -43,7 +43,7 @@ install_personal(){
 
 install_terminator(){
   info "Installing terminator"
-	info "Based on: https://gnometerminator.blogspot.com/p/introduction.html"
+  info "Based on: https://gnometerminator.blogspot.com/p/introduction.html"
 
   sudo add-apt-repository ppa:gnome-terminator
   sudo apt-get update
@@ -64,47 +64,47 @@ install_bat(){
 }
 
 install_kolourpaint4(){
-  info "Installing kolourpaint"
+	info "Installing kolourpaint"
 	info "Based on: https://www.vivaolinux.com.br/artigo/Kolourpaint-Um-editor-grafico-muito-util"
 
-  sudo apt-get update
-  sudo apt-get install kolourpaint4 -y
+	sudo apt-get update
+	sudo apt-get install kolourpaint4 -y
 
-  success "kolourpaint installed!"
+	success "kolourpaint installed!"
 }
 
 install_ripgrep(){
-  info "Installing ripgrep"
+	info "Installing ripgrep"
 	info "Based on: https://github.com/BurntSushi/ripgrep#installation"
 
-  sudo apt-get update
-  sudo apt-get install ripgrep -y
+	sudo apt-get update
+	sudo apt-get install ripgrep -y
 
-  success "ripgrep installed!"
+	success "ripgrep installed!"
 }
 
-install_fzr(){
-	info "Installing fzr"
+install_fzf(){
+	info "Installing fzf"
 	info "Based on: https://github.com/junegunn/fzf#using-git"
 
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
-	success "fzr installed"
+	success "fzf installed"
 }
 
 install_spotify(){
-  user "Installing Spotify"
+	user "Installing Spotify"
 	user "Based on: https://www.spotify.com/br/download/linux/"
 
-  # 1. Add the Spotify repository signing keys to be able to verify downloaded packages
-  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-  # 2. Add the Spotify repository
-  echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-  # 3. Update list of available packages
-  sudo apt-get update
-  # 4. Install Spotify
-  sudo apt-get install spotify-client -y
+	# 1. Add the Spotify repository signing keys to be able to verify downloaded packages
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+	# 2. Add the Spotify repository
+	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+	# 3. Update list of available packages
+	sudo apt-get update
+	# 4. Install Spotify
+	sudo apt-get install spotify-client -y
 
 	success "Spotify installed"
 }
