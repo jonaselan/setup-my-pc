@@ -30,14 +30,7 @@ install_personal(){
 	read choice;
 
 	if [[ $choice == "y" ]]; then
-		git clone https://github.com/jonaselan/dotfiles.git ~/.smpc
-		mv ~/.smpc/.gitconfig ~/ # git
-		mv ~/.smpc/.zshrc ~/ # zsh
-		mv ~/.smpc/.vimrc ~/ # vim
-		# terminator
-		mv ~/.smpc/terminator ~/.smpc/config
-		mkdir ~/.config/terminator/
-		mv ~/.smpc/config ~/.config/terminator/
+		update_dotfiles
 	fi
 }
 

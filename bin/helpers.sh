@@ -1,5 +1,36 @@
 #!/bin/bash
 
+update_dotfiles() {
+	# clone dotifles
+	git clone https://github.com/jonaselan/dotfiles.git ~/.smpc
+
+	# Setup terminator folder
+	mkdir ~/.config/terminator/
+
+	# src:dest
+	link_files=(
+		"$HOME/.smpc/.zshrc:$HOME/test/.zshrc"
+		"$HOME/.smpc/.vimrc:$HOME/test/.vimrc"
+		"$HOME/.smpc/.gitconfig:$HOME/test/.gitconfig"
+		"$HOME/.smpc/terminator:$HOME/.config/terminator/config"
+	)
+
+	# Link files
+	info 'Linking dotfiles'
+	for lf in "${link_files[@]}"
+	do
+			src="$(echo -n $lf | cut -d':' -f1)"
+			dest="$(echo -n $lf | cut -d':' -f2)"
+
+			ln -sTf $src $dest
+
+			# explicit simbolyc link
+			stat -c '%N' "$(echo -n $lf | cut -d':' -f2)"
+	done
+
+	success 'Dotfiles updated'
+}
+
 info () {
 	printf "\r  [ \033[00;34m...\033[0m ] $1\n"
 }
