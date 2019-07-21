@@ -5,7 +5,12 @@ Usage:
 Action:
 	install 	Install the software related to the [OPTION] chosen
 	version 	Show last version of smpc
-	help 		Show this help message
+	help 			Show this help message
+
+Option:
+	basic 		Install basic tools
+	personal 	Install jonaselan personal tools
+	dev 			Install development tools
 
 Example:
-	smpc install vscode
+	smpc install personal
