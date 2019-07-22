@@ -11,6 +11,8 @@ basic_packages=(
   $(command_exists htop || echo htop)
   $(command_exists unzip || echo unzip)
   $(command_exists clipit || echo clipit)
+  $(command_exists xclip || echo xclip)
+
   # google-chrome
 )
 
