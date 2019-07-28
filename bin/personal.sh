@@ -12,6 +12,7 @@ personal_packages=(
   'vlc'
   'fira_code'
   'exa'
+  'diff_so_fancy'
   # 'tweak'
   # 'statusubuntu'
 )
@@ -216,4 +217,13 @@ install_exa(){
 	rm ~/exa-linux-x86_64-0.8.0.zip
 
 	success "Exa installed"
+}
+
+install_diff_so_fancy() {
+	info "Installing Diff So Fancy"
+	info "Based on: https://gist.github.com/GregKWhite/dbf710ddf72cfae502ad695019a87a1c"
+
+	npm install -g diff-so-fancy
+
+	success "Diff So Fancy installed"
 }
