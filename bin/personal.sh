@@ -13,6 +13,7 @@ personal_packages=(
   'fira_code'
   'exa'
   'diff_so_fancy'
+	'system_monitor'
   # 'tweak'
   # 'statusubuntu'
 )
@@ -226,4 +227,13 @@ install_diff_so_fancy() {
 	npm install -g diff-so-fancy
 
 	success "Diff So Fancy installed"
+}
+
+install_system_monito() {
+	info "Installing Widget System monitor"
+	info "Based on: https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet"
+
+	sudo apt-get install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0  gir1.2-clutter-1.0
+
+	success "Widget System monitor installed"
 }

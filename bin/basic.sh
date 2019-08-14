@@ -13,7 +13,7 @@ basic_packages=(
   $(command_exists clipit || echo clipit)
   $(command_exists xclip || echo xclip)
   $(command_exists autojump || echo autojump)
-
+  $(command_exists flameshot || echo flameshot)
   # google-chrome
 )
 
