@@ -67,4 +67,4 @@ $ smpc install dev
 - postgresql
 - mysq
 
-Project inspired on [MEOU](https://github.com/DavidCardoso/my-env-on-ubuntu)
+Project inspired by [MEOU](https://github.com/DavidCardoso/my-env-on-ubuntu)
