@@ -16,6 +16,7 @@ dev_packages=(
 # 'vscode'
 # 'build-essencial'
 # 'libssl-dev'
+# albert
 
 install_dev(){
     update_packages

@@ -10,7 +10,7 @@ basic_packages=(
   $(command_exists npm || echo npm)
   $(command_exists htop || echo htop)
   $(command_exists unzip || echo unzip)
-  $(command_exists clipit || echo clipit)
+  $(command_exists copyq || echo copyq)
   $(command_exists xclip || echo xclip)
   $(command_exists autojump || echo autojump)
   $(command_exists flameshot || echo flameshot)
