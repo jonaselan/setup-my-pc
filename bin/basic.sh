@@ -14,6 +14,7 @@ basic_packages=(
   $(command_exists xclip || echo xclip)
   $(command_exists autojump || echo autojump)
   $(command_exists flameshot || echo flameshot)
+  $(command_exists sxhkd || echo sxhkd)
   # google-chrome
 )
 
