@@ -14,7 +14,7 @@ personal_packages=(
   'exa'
   'diff_so_fancy'
 	'system_monitor'
-	'fusuma'
+	'fusuma'  # need reload and setup startup command 'sudo fusuma'
 	# albert https://software.opensuse.org/download.html?project=home:manuelschneid3r&package=albert
   # 'tweak'
   # 'statusubuntu'
