@@ -7,6 +7,7 @@ update_dotfiles() {
 	# Setup folders
 	mkdir ~/.config/terminator/
 	mkdir ~/.config/sxhkd/
+	mkdir ~/.config/fusuma/
 
 	# src:dest
 	link_files=(
@@ -15,6 +16,7 @@ update_dotfiles() {
 		"$HOME/.smpc/.gitconfig:$HOME/test/.gitconfig"
 		"$HOME/.smpc/terminator:$HOME/.config/terminator/config"
 		"$HOME/.smpc/sxhkdrc:$HOME/.config/sxhkd/sxhkdrc"
+		"$HOME/.smpc/fusuma.yml:$HOME/.config/fusuma/config.yml"
 	)
 
 	# Link files

@@ -14,7 +14,7 @@ personal_packages=(
   'exa'
   'diff_so_fancy'
 	'system_monitor'
-	'sxhkd'
+	'fusuma'
 	# albert https://software.opensuse.org/download.html?project=home:manuelschneid3r&package=albert
   # 'tweak'
   # 'statusubuntu'
@@ -238,4 +238,14 @@ install_system_monito() {
 	sudo apt-get install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0  gir1.2-clutter-1.0
 
 	success "Widget System monitor installed"
+}
+
+install_fusuma() {
+	if ! hash ruby 2>/dev/null; then
+		fail "Ruby is not installed yet!"
+	else
+		sudo gpasswd -a $USER input
+		gem install fusuma
+		sudo apt-get install libinput-tools xdotool
+	fi
 }
