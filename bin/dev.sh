@@ -11,7 +11,7 @@ dev_packages=(
     'postgresql'
     'mysq'
     'postman'
-	'asdf'
+		'asdf'
 )
 # 'vscode'
 # 'build-essencial'

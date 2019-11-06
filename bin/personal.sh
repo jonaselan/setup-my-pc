@@ -14,6 +14,8 @@ personal_packages=(
   'exa'
   'diff_so_fancy'
 	'system_monitor'
+	'sxhkd'
+	# albert https://software.opensuse.org/download.html?project=home:manuelschneid3r&package=albert
   # 'tweak'
   # 'statusubuntu'
 )

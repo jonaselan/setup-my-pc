@@ -52,6 +52,7 @@ $ smpc install dev
 - vlc
 - fira_code
 - exa
+- sxhkd
 
 ### Dev
 

@@ -4,8 +4,9 @@ update_dotfiles() {
 	# clone dotifles
 	git clone https://github.com/jonaselan/dotfiles.git ~/.smpc
 
-	# Setup terminator folder
+	# Setup folders
 	mkdir ~/.config/terminator/
+	mkdir ~/.config/sxhkd/
 
 	# src:dest
 	link_files=(
@@ -13,6 +14,7 @@ update_dotfiles() {
 		"$HOME/.smpc/.vimrc:$HOME/test/.vimrc"
 		"$HOME/.smpc/.gitconfig:$HOME/test/.gitconfig"
 		"$HOME/.smpc/terminator:$HOME/.config/terminator/config"
+		"$HOME/.smpc/sxhkdrc:$HOME/.config/sxhkd/sxhkdrc"
 	)
 
 	# Link files
