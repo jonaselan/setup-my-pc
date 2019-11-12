@@ -2,9 +2,9 @@
 
 personal_packages=(
   'ohmyzsh'
-	'delta'
+  'delta'
   'zshplugins'
-	'prettyping'
+  'prettyping'
   'terminator'
   'bat'
   'ripgrep'
@@ -15,8 +15,8 @@ personal_packages=(
   'fira_code'
   'exa'
   'diff_so_fancy'
-	'system_monitor'
-	'fusuma'  # need reload and setup startup command 'sudo fusuma'
+  'system_monitor'
+  'fusuma'  # need reload and setup startup command 'sudo fusuma'
 	# albert https://software.opensuse.org/download.html?project=home:manuelschneid3r&package=albert
   # 'tweak'
   # 'statusubuntu'
@@ -213,8 +213,7 @@ install_zshplugins(){
 	info "Installing Forgit"
 	info "https://github.com/wfxr/forgit"
 
-	git clone https://github.com/wfxr/forgit.git ~/
-	source ~/forgit/forgit.plugin.zsh
+	git clone https://github.com/wfxr/forgit.git ~/forgit
 
 	success "Forgit Installed"
 }
