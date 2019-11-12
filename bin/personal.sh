@@ -179,6 +179,16 @@ install_zshplugins(){
 	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
 	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 	success "spaceship-theme Installed"
+
+	info "Installing Forgit"
+	info "https://github.com/wfxr/forgit"
+
+	git clone https://github.com/wfxr/forgit.git
+	source forgit/forgit.plugin.zsh
+	rm -fr forgit
+
+	success "Forgit Installed"
+
 }
 
 install_fira_code(){
@@ -245,7 +255,7 @@ install_fusuma() {
 		fail "Ruby is not installed yet!"
 	else
 		sudo gpasswd -a $USER input
-		gem install fusuma
+		sudo gem install fusuma
 		sudo apt-get install libinput-tools xdotool
 	fi
 }
