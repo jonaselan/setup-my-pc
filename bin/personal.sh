@@ -159,6 +159,17 @@ install_ohmyzsh(){
 	fi
 }
 
+install_delta() {
+	info "Installing Delta"
+	info "Based on: https://github.com/dandavison/delta"
+
+	wget https://github.com/dandavison/delta/releases/download/0.0.14/delta_0.0.14_amd64.deb
+	sudo dpkg -i delta_0.0.14_amd64.deb
+	rm delta_0.0.14_amd64.deb
+
+	success "Delta Installed"
+}
+
 # I know the exist plugin managers, but this way I don't install extra things
 install_zshplugins(){
 	info "Installing zsh-syntax-highlighting"
@@ -183,12 +194,10 @@ install_zshplugins(){
 	info "Installing Forgit"
 	info "https://github.com/wfxr/forgit"
 
-	git clone https://github.com/wfxr/forgit.git
-	source forgit/forgit.plugin.zsh
-	rm -fr forgit
+	git clone https://github.com/wfxr/forgit.git ~/
+	source ~/forgit/forgit.plugin.zsh
 
 	success "Forgit Installed"
-
 }
 
 install_fira_code(){
