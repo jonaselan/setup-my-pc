@@ -12,6 +12,7 @@ dev_packages=(
     'mysq'
     'postman'
 		'asdf'
+		'tldr'
 )
 # 'vscode'
 # 'build-essencial'
@@ -182,4 +183,13 @@ install_asdf(){
 	echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
 
 	success "ASDF installed"
+}
+
+install_tldr(){
+	info "Installing tldr"
+	info "Based on: https://tldr.sh/"
+
+	npm install -g tldr
+
+	success "tldr installed"
 }
