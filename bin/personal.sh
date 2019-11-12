@@ -2,7 +2,9 @@
 
 personal_packages=(
   'ohmyzsh'
+	'delta'
   'zshplugins'
+	'prettyping'
   'terminator'
   'bat'
   'ripgrep'
@@ -159,6 +161,17 @@ install_ohmyzsh(){
 	fi
 }
 
+install_prettyping(){
+	info "Installing Prettyping"
+	info "Based on: http://denilson.sa.nom.br/prettyping/"
+
+	curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
+	sudo mv prettyping /usr/local/bin/prettyping
+	sudo chmod +x /usr/local/bin/prettyping
+
+	success "Prettyping Installed"
+}
+
 install_delta() {
 	info "Installing Delta"
 	info "Based on: https://github.com/dandavison/delta"
@@ -177,20 +190,26 @@ install_zshplugins(){
 
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 	success "zsh-syntax-highlighting Installed"
-
+	# ------------
 	info "Installing zsh-autosuggestions"
 	info "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
 
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	success "zsh-autosuggestions Installed"
+	# ------------
+	info "Installing zsh-interactive-cd"
+	info "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
 
+	git clone https://github.com/changyuheng/zsh-interactive-cd.git ~/zsh-interactive
+	success "zsh-interactive-cd Installed"
+	# ------------
 	info "Installing Spaceship theme"
 	info "https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh"
 
 	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
 	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 	success "spaceship-theme Installed"
-
+	# ------------
 	info "Installing Forgit"
 	info "https://github.com/wfxr/forgit"
 
