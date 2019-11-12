@@ -15,6 +15,7 @@ basic_packages=(
   $(command_exists autojump || echo autojump)
   $(command_exists flameshot || echo flameshot)
   $(command_exists sxhkd || echo sxhkd)
+  $(command_exists ncdu || echo ncdu)
   # google-chrome
 )
 
