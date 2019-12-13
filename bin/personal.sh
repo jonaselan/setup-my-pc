@@ -200,7 +200,7 @@ install_zshplugins(){
 	info "Installing zsh-interactive-cd"
 	info "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
 
-	git clone https://github.com/changyuheng/zsh-interactive-cd.git ~/zsh-interactive
+	git clone https://github.com/changyuheng/zsh-interactive-cd.git "$ZSH_CUSTOM/plugins/zsh-interactive"
 	success "zsh-interactive-cd Installed"
 	# ------------
 	info "Installing Spaceship theme"
@@ -213,7 +213,7 @@ install_zshplugins(){
 	info "Installing Forgit"
 	info "https://github.com/wfxr/forgit"
 
-	git clone https://github.com/wfxr/forgit.git ~/forgit
+	git clone https://github.com/wfxr/forgit.git "$ZSH_CUSTOM/plugins/forgit"
 
 	success "Forgit Installed"
 }
