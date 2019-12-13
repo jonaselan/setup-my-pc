@@ -251,10 +251,10 @@ install_exa(){
 	info "Installing exa"
 	info "Based on: https://www.tricksofthetrades.net/2018/08/30/exa-getting-started/"
 
-	wget https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip -P ~/
-	unzip ~/exa-linux-x86_64-0.8.0.zip -d ~/
+	wget https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip -P ~/
+	unzip ~/exa-linux-x86_64-0.9.0.zip -d ~/
 	sudo mv ~/exa-linux-x86_64 /usr/local/bin/exa
-	rm ~/exa-linux-x86_64-0.8.0.zip
+	rm ~/exa-linux-x86_64-0.9.0.zip
 
 	success "Exa installed"
 }
