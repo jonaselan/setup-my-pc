@@ -11,9 +11,9 @@ update_dotfiles() {
 
 	# src:dest
 	link_files=(
-		"$HOME/.smpc/.zshrc:$HOME/test/.zshrc"
-		"$HOME/.smpc/.vimrc:$HOME/test/.vimrc"
-		"$HOME/.smpc/.gitconfig:$HOME/test/.gitconfig"
+		"$HOME/.smpc/.zshrc:$HOME/.zshrc"
+		"$HOME/.smpc/.vimrc:$HOME/.vimrc"
+		"$HOME/.smpc/.gitconfig:$HOME/.gitconfig"
 		"$HOME/.smpc/terminator:$HOME/.config/terminator/config"
 		"$HOME/.smpc/sxhkdrc:$HOME/.config/sxhkd/sxhkdrc"
 		"$HOME/.smpc/fusuma.yml:$HOME/.config/fusuma/config.yml"
