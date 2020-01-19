@@ -13,6 +13,7 @@ dev_packages=(
     'postman'
 		'asdf'
 		'tldr'
+		'git-recent'
 )
 # 'vscode'
 # 'build-essencial'
@@ -189,7 +190,16 @@ install_tldr(){
 	info "Installing tldr"
 	info "Based on: https://tldr.sh/"
 
-	npm install -g tldr
+	sudo npm install -g tldr
 
 	success "tldr installed"
+}
+
+install_git-recent() {
+	info "Installing git-recent"
+	info "Based on: https://github.com/paulirish/git-recent#installation"
+
+	sudo npm install --global git-recent
+
+	success "git-recent installed"
 }
