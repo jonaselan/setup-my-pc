@@ -5,14 +5,18 @@
 sudo pacman-mirrors -ic Brazil
 
 # basic
-sudo pacman -Syu git vim wget curl copyq unzip xclip ncdu sxhkd flameshot autojump
+sudo pacman -Syu git vim wget curl copyq unzip xclip ncdu sxhkd flameshot yaourt zsh
 
 # dev
-albert xdotool ripgrep diff-so-fancy terminator git-recent
+sudo pacman -Syu albert xdotool ripgrep diff-so-fancy terminator git-recent
 
 # personal
-tldr exa bat prettyping
+sudo pacman -Syu  tldr exa bat prettyping libsecret gnome-keyring
 
 # system
 sudo pacman -Syu pulseaudio pavucontrol # audio control
-ncdu sxhkd flameshot copyq unzip
+
+# others: vscode, chrome
+
+# yay 
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -fr ya
