@@ -8,11 +8,12 @@ sudo pacman-mirrors -ic Brazil
 sudo pacman -Syu git vim wget curl copyq unzip xclip ncdu sxhkd flameshot autojump
 
 # dev
-albert xdotool ripgrep diff-so-fancy terminator git-recent
+sudo pacman -Syu albert xdotool ripgrep diff-so-fancy terminator git-recent
 
 # personal
-tldr exa bat prettyping
+sudo pacman -Syu  tldr exa bat prettyping
 
 # system
 sudo pacman -Syu pulseaudio pavucontrol # audio control
-ncdu sxhkd flameshot copyq unzip
+
+# others: vscode, chrome
