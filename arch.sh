@@ -16,7 +16,7 @@ sudo pacman -Syu  tldr exa bat prettyping libsecret gnome-keyring
 # system
 sudo pacman -Syu pulseaudio pavucontrol # audio control
 
-# shop: autojump, postman, vscode, chrome, dbeaver
+# shop: autojump, postman, vscode, chrome, dbeaver, mailspring
 
 # scripts
 git clone https://github.com/changyuheng/zsh-interactive-cd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive
