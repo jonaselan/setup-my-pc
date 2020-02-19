@@ -19,6 +19,8 @@ sudo pacman -Syu pulseaudio pavucontrol # audio control
 # shop: autojump, postman, vscode, chrome, dbeaver, mailspring
 
 # scripts
+cd /usr/local/bin && sudo wget -rnd https://dystroy.org/broot/download/x86_64-linux/broot && sudo chmod +x broot && cd -
+
 git clone https://github.com/changyuheng/zsh-interactive-cd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
@@ -59,4 +61,4 @@ do
 done
 
 # yay
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -fr ya
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -fr yay
