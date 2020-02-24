@@ -268,7 +268,7 @@ install_diff_so_fancy() {
 	success "Diff So Fancy installed"
 }
 
-install_system_monito() {
+install_system_monitor() {
 	info "Installing Widget System monitor"
 	info "Based on: https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet"
 
