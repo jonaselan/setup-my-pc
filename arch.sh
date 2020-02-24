@@ -6,6 +6,7 @@ sudo pacman-mirrors -ic Brazil
 
 # basic
 sudo pacman -Syu git vim wget curl copyq unzip xclip ncdu sxhkd flameshot yaourt zsh
+sudo yay -S fortune-mod cowsay
 
 # dev
 sudo pacman -Syu albert xdotool ripgrep diff-so-fancy terminator git-recent
