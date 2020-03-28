@@ -14,13 +14,13 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. &&
 sudo yay -S fortune-mod cowsay
 
 # dev
-sudo pacman -Syu nodejs npm albert xdotool ripgrep diff-so-fancy terminator postgresql
+sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy terminator postgresql
 
 # personal
-sudo pacman -Syu  tldr exa bat prettyping libsecret gnome-keyring
+sudo yay -Syu  tldr exa bat prettyping libsecret gnome-keyring aur/jumpapp-git
 
 # system
-sudo pacman -Syu pulseaudio pavucontrol # audio control
+sudo yay -Syu pulseaudio pavucontrol # audio control
 
 # shop: autojump, postman, vscode, chrome, dbeaver, mailspring
 
