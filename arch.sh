@@ -14,7 +14,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. &&
 sudo yay -S fortune-mod cowsay
 
 # dev
-sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy terminator postgresql
+sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy terminator postgresql alacritty tmux
 
 # personal
 sudo yay -Syu  tldr exa bat prettyping libsecret gnome-keyring aur/jumpapp-git
