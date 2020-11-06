@@ -18,7 +18,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. &&
 sudo yay -S fortune-mod cowsay
 
 # dev
-sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy terminator postgresql alacritty tmux
+sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy tree redis postgresql alacritty tmux
 
 # personal
 sudo yay -Syu autojump tldr exa bat prettyping libsecret gnome-keyring aur/jumpapp-git
@@ -27,6 +27,11 @@ sudo yay -Syu autojump tldr exa bat prettyping libsecret gnome-keyring aur/jumpa
 sudo yay -Syu pulseaudio pavucontrol # audio control
 
 # store: postman, vscode, chrome, dbeaver, mailspring
+
+# tutorials
+# docker: https://linuxconfig.org/manjaro-linux-docker-installation
+# postgres: https://lobotuerto.com/blog/how-to-install-postgresql-in-manjaro-linux/
+
 
 # scripts
 cd /usr/local/bin && sudo wget -rnd https://dystroy.org/broot/download/x86_64-linux/broot && sudo chmod +x broot && cd -
@@ -73,5 +78,3 @@ do
     # explicit simbolyc link
     stat -c '%N' "$(echo -n $lf | cut -d':' -f2)"
 done
-
-
