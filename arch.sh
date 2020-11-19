@@ -32,6 +32,13 @@ sudo yay -Syu pulseaudio pavucontrol # audio control
 # docker: https://linuxconfig.org/manjaro-linux-docker-installation
 # postgres: https://lobotuerto.com/blog/how-to-install-postgresql-in-manjaro-linux/
 
+# ulauncher
+# https://github.com/Ulauncher/ulauncher-emoji
+# https://github.com/pwnyprod/ulauncher-ipcopy
+# https://github.com/friday/ulauncher-clipboard
+# https://github.com/episode6/ulauncher-system-management-direct
+# https://github.com/isacikgoz/ukill
+# https://github.com/ulauncher/ulauncher-timer
 
 # scripts
 cd /usr/local/bin && sudo wget -rnd https://dystroy.org/broot/download/x86_64-linux/broot && sudo chmod +x broot && cd -
@@ -41,13 +48,13 @@ git clone https://github.com/changyuheng/zsh-interactive-cd.git ${ZSH_CUSTOM:-~/
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
+git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
 git clone https://github.com/wfxr/forgit.git "$ZSH_CUSTOM/plugins/forgit"
 git clone https://github.com/Aloxaf/fzf-tab "$ZSH_CUSTOM/plugins/fzf-tab"
 
 git clone https://github.com/jonaselan/dotfiles.git ~/.smpc
+
 # Setup folders
 mkdir ~/.config/terminator/
 mkdir ~/.config/sxhkd/
