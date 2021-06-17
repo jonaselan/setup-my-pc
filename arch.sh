@@ -18,7 +18,7 @@ echo "Installing fun applications..."
 sudo yay -S fortune-mod cowsay
 
 echo "Installing dev applications..."
-sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy tree redis postgresql alacritty tmux ngrok
+sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy tree redis postgresql alacritty tmux ngrok startship
 
 echo "Installing personal applications..."
 sudo yay -Syu autojump tldr exa bat prettyping libsecret gnome-keyring aur/jumpapp-git
@@ -27,6 +27,7 @@ echo "Installing system applications..."
 sudo yay -Syu pulseaudio pavucontrol # audio control
 
 # store: postman, vscode, chrome, dbeaver, mailspring
+# manual: jetbrains font
 
 # tutorials
 # docker: https://linuxconfig.org/manjaro-linux-docker-installation
@@ -69,7 +70,7 @@ mkdir ~/.config/fusuma/
 link_files=(
     "$HOME/.smpc/.zshrc:$HOME/.zshrc"
     "$HOME/.smpc/.vimrc:$HOME/.vimrc"
-    "$HOME/.smpc/.tmux:$HOME/.tmux"
+    "$HOME/.smpc/.tmux:$HOME/.tmux.conf"
     "$HOME/.smpc/.gitconfig:$HOME/.gitconfig"
     "$HOME/.smpc/sxhkdrc:$HOME/.config/sxhkd/sxhkdrc"
     "$HOME/.smpc/fusuma.yml:$HOME/.config/fusuma/config.yml"
