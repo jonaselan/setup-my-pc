@@ -17,7 +17,7 @@ brew install copyq
 brew install unzip
 brew install xclip
 brew install ncdu
-brew install sxhkd
+brew install git-extras
 brew install --cask vlc
 brew install --cask spotify
 brew install --cask google-chrome
