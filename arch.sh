@@ -57,6 +57,8 @@ git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
 git clone https://github.com/wfxr/forgit.git "$ZSH_CUSTOM/plugins/forgit"
 git clone https://github.com/Aloxaf/fzf-tab "$ZSH_CUSTOM/plugins/fzf-tab"
 
+npm install --global git-open
+
 echo "Setup my personal dotfiles..."
 git clone https://github.com/jonaselan/dotfiles.git ~/.smpc
 
