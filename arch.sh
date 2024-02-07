@@ -28,6 +28,7 @@ sudo yay -Syu pulseaudio pavucontrol # audio control
 
 # store: postman, vscode, chrome, dbeaver, mailspring
 # manual: jetbrains font
+# https://www.jetbrains.com/lp/mono/#how-to-install
 
 # tutorials
 # docker: https://linuxconfig.org/manjaro-linux-docker-installation
