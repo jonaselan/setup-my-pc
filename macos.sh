@@ -32,6 +32,7 @@ brew install diff-so-fancy
 brew install postgresql
 brew install tmux
 brew install autojump
+brew install git-extras
 brew install --cask dbeaver-community
 brew install --cask postman
 brew install --cask vscode
