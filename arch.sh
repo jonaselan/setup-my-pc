@@ -18,7 +18,7 @@ echo "Installing fun applications..."
 sudo yay -S fortune-mod cowsay
 
 echo "Installing dev applications..."
-sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy tree redis postgresql alacritty tmux ngrok startship
+sudo yay -Syu nodejs npm albert xdotool ripgrep diff-so-fancy tree redis postgresql alacritty tmux ngrok startship git-extras
 
 echo "Installing personal applications..."
 sudo yay -Syu autojump tldr exa bat prettyping libsecret gnome-keyring aur/jumpapp-git
