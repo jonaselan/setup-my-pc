@@ -68,8 +68,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo "Installing zsh auto suggestion..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-echo "Installing forgit..."
-git clone https://github.com/wfxr/forgit.git "$ZSH_CUSTOM/plugins/forgit"
-
 echo "Installing fzf-tab..."
 git clone https://github.com/Aloxaf/fzf-tab "$ZSH_CUSTOM/plugins/fzf-tab"
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
