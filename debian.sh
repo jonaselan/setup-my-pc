@@ -13,7 +13,7 @@ echo "Installing dev applications..."
 sudo apt-get install -y nodejs npm albert xdotool ripgrep diff-so-fancy tree redis postgresql postgresql-contrib alacritty tmux ngrok git-extras
 
 echo "Installing personal applications..."
-sudo apt-get install -y autojump tldr exa bat prettyping libsecret jumpapp
+sudo apt-get install -y autojump tldr eza batcat prettyping libsecret jumpapp
 
 echo "Installing system applications..."
 sudo apt-get install -y pulseaudio pavucontrol # audio control
@@ -49,10 +49,13 @@ echo "Installing zsh interactive..."
 
 echo "Installing zsh syntax highlight..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+echo "Installing zsh auto suggestion..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
-# git clone https://github.com/wfxr/forgit.git "$ZSH_CUSTOM/plugins/forgit"
-# git clone https://github.com/Aloxaf/fzf-tab "$ZSH_CUSTOM/plugins/fzf-tab"
+
+echo "Installing zsh tab..."
+git clone https://github.com/Aloxaf/fzf-tab "$ZSH_CUSTOM/plugins/fzf-tab"
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 npm install --global git-open
 
